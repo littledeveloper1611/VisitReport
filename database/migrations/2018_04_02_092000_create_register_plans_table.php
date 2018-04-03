@@ -14,7 +14,8 @@ class CreateRegisterPlansTable extends Migration
     public function up()
     {
         Schema::create('register_plans', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id')->unique();
+            $table->unsignedInteger('user_id');
             $table->string('shop_name');
             $table->string('shop_address');
             $table->unsignedInteger('status');
